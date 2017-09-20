@@ -26,7 +26,7 @@ https://gohugo.io/getting-started/installing/
   - Give your social media accounts name in [params.facebook] [params.linkedin] [params.twitter]
   - If you have any licencing then fill [params.license] in **config.toml**
 
-- Change your favicon by replacing old favicon in *C:\Hugo\Sites\domain.com\static\faviocn.ico*
+- Change your favicon by replacing old favicon *static\faviocn.ico*
 
 ### How to write post
 
@@ -36,7 +36,7 @@ https://gohugo.io/getting-started/installing/
 
 - edit post-name.md
 - change the **draft: true** to **draft: false**.
-- Now aftre three hyphens *---* write down your markdown for the post and save it.
+- Now after three hyphens *---* write down your markdown for the post and save it.
 
 For markdown visit https://en.support.wordpress.com/markdown-quick-reference/
 
