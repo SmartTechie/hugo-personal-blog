@@ -2042,7 +2042,12 @@ body>footer p {
     display: inline-block;
     float: none;
     width: 33% !important;
-
+}
+#header #social {
+    height: 115px;
+}
+hr:last-child {
+    display: none;
 }
 #header #social li#follow ul.social li a {
     padding-left: 0;
