@@ -31,15 +31,19 @@ https://gohugo.io/getting-started/installing/
 ### How to write post
 
 `hugo new post/post-name.md`
+
 `cd content\post`
+
 - edit post-name.md
 - change the **draft: true** to **draft: false**.
 - Now aftre three hyphens *---* write down your markdown for the post and save it.
 
 For markdown visit https://en.support.wordpress.com/markdown-quick-reference/
+
 For hugo shortcodes visit https://gohugo.io/content-management/shortcodes/
 
 For generating static site run command `hugo` in main directory (e.g. blog)
+
 Your site will be generated in *public* diretory
 
 
