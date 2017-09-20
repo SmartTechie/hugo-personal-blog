@@ -1,0 +1,25 @@
+<ul id="social">
+	<li id="follow">
+		<span class="icon icon-rocket"> </span><span class="title"> follow </span>
+		<div class="dropdown follow">
+			<ul class="social">
+
+{{ if .Site.Params.twitter.account }}
+				<li>
+					<a href="http://www.twitter.com/{{.Site.Params.twitter.account}}" target="_blank" title="Follow me on Twitter" class="twitter"><span class="icon icon-twitter"><i aria-hidden="true" class="icon-nixon-twitter"></i></span></a>
+				</li>
+{{ end }}
+{{ if .Site.Params.linkedin.account }}
+				<li>
+					<a href="http://www.linkedin.com/in/{{.Site.Params.linkedin.account}}" target="_blank" title="LinkedIn" class="linkedin"><span class="icon icon-linkedin"><i aria-hidden="true" class="icon-nixon-linkedin"></i></span></a>
+				</li>
+{{ end }}
+{{ if .Site.Params.facebook.account }}
+				<li>
+					<a href="http://www.facebook.com/{{.Site.Params.facebook.account}}" target="_blank" title="Join me on Facebook" class="facebook"><span class="icon icon-facebook"><i aria-hidden="true" class="icon-nixon-facebook"></i></span></a>
+				</li>
+{{ end }}
+			</ul>
+		</div>
+	</li>
+</ul>

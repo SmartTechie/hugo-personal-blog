@@ -1,0 +1,3 @@
+[submodule "themes/nixon"]
+	path = themes/nixon
+	url = https://github.com/mdhender/nixon.git

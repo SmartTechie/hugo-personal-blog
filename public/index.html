@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<head>
+	<meta name="generator" content="Hugo 0.26" />
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="description" content="">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<meta name="keywords" content="">
+
+ 
+<meta property="og:type" content="article"/>
+<meta property="og:description" content=""/>
+<meta property="og:title" content="Arman Anwar Blog : aanwar.com"/>
+<meta property="og:site_name" content="aanwar.com is Arman Anwar"/>
+<meta property="og:image" content="" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="" />
+<meta property="og:image:height" content="" />
+<meta property="og:url" content="http://aanwar.xululabs.us/">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-09-19"/>
+<meta property="article:modified_time" content="2017-09-19"/>
+
+
+
+
+
+
+<meta name="twitter:card" content="summary">
+
+<meta name="twitter:site" content="@armaninspace">
+<meta name="twitter:title" content="Arman Anwar Blog : aanwar.com">
+<meta name="twitter:creator" content="@armaninspace">
+<meta name="twitter:description" content="">
+<meta name="twitter:image:src" content="">
+<meta name="twitter:domain" content="aanwar.com">
+
+
+
+    <base href="http://aanwar.xululabs.us/">
+    <title>Arman Anwar Blog</title>
+    <link rel="canonical" href="http://aanwar.xululabs.us/">
+    <link href="http://aanwar.xululabs.us/index.xml" rel="alternate" type="application/rss+xml" title="Arman Anwar Blog" />
+
+    <link href='//fonts.googleapis.com/css?family=Fjalla+One|Open+Sans:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/css/nixon.css">
+
+</head>
+<body lang="en">
+
+<header id="header">
+    <figure>
+      <a href="/" border=0 id="logolink"><div class="icon-nixon-home" id="logo"> </div></a>
+    </figure>
+    <div id="byline">by Arman Anwar</div>
+    <nav id="nav">
+    
+    <div>
+    	<section id="author">
+    		<h4>About the Author:</h4>
+    		<p>Fusce pulvinar dictum magna, vel rutrum nunc tempor non. Curabitur aliquam justo. Pellentesque fringilla libero eget suscipit malesuada.</p>
+    	</section>
+    </div>
+    
+    <ul id="social">
+	<li id="follow">
+		<span class="icon icon-rocket"> </span><span class="title"> follow </span>
+		<div class="dropdown follow">
+			<ul class="social">
+
+
+				<li>
+					<a href="http://www.twitter.com/armaninspace" target="_blank" title="Follow me on Twitter" class="twitter"><span class="icon icon-twitter"><i aria-hidden="true" class="icon-nixon-twitter"></i></span></a>
+				</li>
+
+
+				<li>
+					<a href="http://www.linkedin.com/in/arman-anwar-a107961" target="_blank" title="LinkedIn" class="linkedin"><span class="icon icon-linkedin"><i aria-hidden="true" class="icon-nixon-linkedin"></i></span></a>
+				</li>
+
+
+				<li>
+					<a href="http://www.facebook.com/arman.anwar" target="_blank" title="Join me on Facebook" class="facebook"><span class="icon icon-facebook"><i aria-hidden="true" class="icon-nixon-facebook"></i></span></a>
+				</li>
+
+			</ul>
+		</div>
+	</li>
+</ul>
+
+    </nav>
+</header>
+
+
+<section id="main">
+  <div>
+      <h1 id="title">Arman Anwar Blog</h1>
+    
+        <h2>Collaborative Plotting With R</h2>
+        <h5 id="date"> Tue Sep 19, 2017 | 300 Words</h5>
+        
+
+<p>The Plotly R graphing library  allows you to create and share interactive, publication-quality plots in your browser. Plotly is also built for working together, and makes it easy to post graphs and data publicly with a URL or privately to collaborators.</p>
+
+<p>In this post, we will demo Plotly, make three graphs, and explain sharing. As we are quite new and still in our beta, your help, feedback, and suggestions go a long way and are appreciated. We are especially grateful for Tal&rsquo;s help and the chance to post.</p>
+
+<h4 id="installing-plotly">Installing Plotly</h4>
+
+<p>From within the R console:</p>
+
+<pre><code>install.packages(&quot;devtools&quot;)
+library(&quot;devtools&quot;)
+</code></pre>
+
+<p>Next, install plotly (a big thanks to Hadley, who suggested the GitHub route):</p>
+
+<pre><code>devtools::install_github(&quot;plotly/R-api&quot;)
+# ...
+# * DONE (plotly)
+</code></pre>
+
+<p>Then sign-up like this or at <a href="https://plot.ly/:">https://plot.ly/:</a></p>
+
+<pre><code>&gt;library(plotly)
+&gt;response = signup (username = 'username', email= 'youremail')
+...
+Thanks for signing up to plotly! 
+ 
+Your username is: MattSundquist
+ 
+Your temporary password is: pw. You use this to log into your plotly account at https://plot.ly/plot. Your API key is: &quot;API_Key&quot;. You use this to access your plotly account through the API.
+ 
+To get started, initialize a plotly object with your username and api_key, e.g. 
+&gt;&gt;&gt; p &lt;- plotly(username=&quot;MattSundquist&quot;, key=&quot;API_Key&quot;)
+Then, make a graph!
+&gt;&gt;&gt; res &lt;- p$plotly(c(1,2,3), c(4,2,1))
+</code></pre>
+
+<p>And we&rsquo;re up and running! You can change and access your password and key in your homepage.</p>
+
+        <hr />
+    
+        <h2>Data Science Strategy for Water Utilities</h2>
+        <h5 id="date"> Mon Sep 18, 2017 | 200 Words</h5>
+        
+<figure class="third right hid">
+    
+        <img src="/img/Data_Science_VD.png" alt="The Data Science Venn Diagram (Conway, 2010)." />
+    
+    
+    <figcaption>
+        <p>
+        The Data Science Venn Diagram (Conway, 2010).
+        
+            
+        
+        </p> 
+    </figcaption>
+    
+</figure>
+
+
+
+<p>In my job as manager data science for a medium-sized water utility in Australia, I have developed a strategy to increased the amount of value we extract from data.</p>
+
+<p>Many businesses that seek the promised benefits of Big Data don&rsquo;t achieve those because they don&rsquo;t start with the basics.</p>
+
+<p>The most important data science strategy advice is to spend a lot of time getting to know and to improve data quality.</p>
+
+<p>Good data science needs to comply with these four basic principles:</p>
+
+<ul>
+<li><strong>Utility:</strong> The analysis needs to be able to improve reality, otherwise we end with &lsquo;analysis-paralysis&rsquo;. Although we speak of data science, it is really data engineering because we are not seeking the truth, we seek improvement of reality.</li>
+<li><strong>Soundness:</strong> The analysis needs to be scientifically valid so that managers can make reliable decisions.</li>
+<li><strong>Aesthetics:</strong> Visualisations need to be pleasing to the eye, not as a beautification but to ensure users draw correct conclusions.</li>
+<li><strong>Reproducibility:</strong> Analysts need to be able to repeat the work of other people to ensure quality control. This is where the science comes into data analytics.</li>
+</ul>
+
+        <hr />
+    
+  </div>
+</section>
+
+<aside id="meta"> </aside>
+
+<footer>
+	<div>
+		<p>
+			Content &copy; 2017
+			
+				<span itemprop="author" itemscope itemtype="http://schema.org/Person">
+					<span itemprop="name">Arman Anwar.</span>
+				</span>
+			
+			<a rel="license" href="" title="Creative Commons Attribution"></a> 
+		</p>
+	</div>
+</footer>
+<script type="text/javascript">
+(function(){var j=function(a,b){return window.getComputedStyle?getComputedStyle(a).getPropertyValue(b):a.currentStyle[b]};var k=function(a,b,c){if(a.addEventListener)a.addEventListener(b,c,false);else a.attachEvent('on'+b,c)};var l=function(a,b){for(key in b)if(b.hasOwnProperty(key))a[key]=b[key];return a};window.fitText=function(d,e,f){var g=l({'minFontSize':-1/0,'maxFontSize':1/0},f);var h=function(a){var b=e||1;var c=function(){a.style.fontSize=Math.max(Math.min(a.clientWidth/(b*10),parseFloat(g.maxFontSize)),parseFloat(g.minFontSize))+'px'};c();k(window,'resize',c)};if(d.length)for(var i=0;i<d.length;i++)h(d[i]);else h(d);return d}})();
+fitText(document.getElementById('title'), 1)
+</script>
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-XXXXX-Y', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>
+
