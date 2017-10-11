@@ -2,13 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Topics on John Smith Blog</title>
-    <link>https://smarttechie.github.io/hugo-personal-blog/topics/</link>
+    <link>/hugo-personal-blog/topics/</link>
     <description>Recent content in Topics on John Smith Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2017, blogname.com; all rights reserved.</copyright>
     
-	<atom:link href="https://smarttechie.github.io/hugo-personal-blog/topics/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/hugo-personal-blog/topics/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
