@@ -3,52 +3,34 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/hugo-personal-blog/post/first-markdown-file-in-r-markdown/</loc>
-    <lastmod>2017-10-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/hugo-personal-blog/post/collaborative-plotting-with-r/</loc>
+    <loc>https://smarttechie.github.io/hugo-personal-blog/post/collaborative-plotting-with-r/</loc>
     <lastmod>2017-09-19T16:56:18+05:00</lastmod>
   </url>
   
   <url>
-    <loc>/hugo-personal-blog/post/data-science-strategy-for-water-utilities/</loc>
+    <loc>https://smarttechie.github.io/hugo-personal-blog/post/data-science-strategy-for-water-utilities/</loc>
     <lastmod>2017-09-18T18:11:55+05:00</lastmod>
   </url>
   
   <url>
-    <loc>/hugo-personal-blog/</loc>
-    <lastmod>2017-10-11T00:00:00+00:00</lastmod>
+    <loc>https://smarttechie.github.io/hugo-personal-blog/</loc>
+    <lastmod>2017-09-19T16:56:18+05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/hugo-personal-blog/post/</loc>
-    <lastmod>2017-10-11T00:00:00+00:00</lastmod>
+    <loc>https://smarttechie.github.io/hugo-personal-blog/post/</loc>
+    <lastmod>2017-09-19T16:56:18+05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/hugo-personal-blog/tags/r/</loc>
-    <lastmod>2017-10-11T00:00:00+00:00</lastmod>
+    <loc>https://smarttechie.github.io/hugo-personal-blog/tags/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/hugo-personal-blog/tags/r-markdown/</loc>
-    <lastmod>2017-10-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/hugo-personal-blog/tags/</loc>
-    <lastmod>2017-10-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/hugo-personal-blog/topics/</loc>
+    <loc>https://smarttechie.github.io/hugo-personal-blog/topics/</loc>
     <priority>0</priority>
   </url>
   

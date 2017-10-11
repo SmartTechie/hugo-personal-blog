@@ -2,33 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on John Smith Blog</title>
-    <link>/hugo-personal-blog/tags/</link>
+    <link>https://smarttechie.github.io/hugo-personal-blog/tags/</link>
     <description>Recent content in Tags on John Smith Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2017, blogname.com; all rights reserved.</copyright>
-    <lastBuildDate>Wed, 11 Oct 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/hugo-personal-blog/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://smarttechie.github.io/hugo-personal-blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>R</title>
-      <link>/hugo-personal-blog/tags/r/</link>
-      <pubDate>Wed, 11 Oct 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/hugo-personal-blog/tags/r/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R Markdown</title>
-      <link>/hugo-personal-blog/tags/r-markdown/</link>
-      <pubDate>Wed, 11 Oct 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/hugo-personal-blog/tags/r-markdown/</guid>
-      <description></description>
-    </item>
     
   </channel>
 </rss>

@@ -2,41 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on John Smith Blog</title>
-    <link>/hugo-personal-blog/post/</link>
+    <link>https://smarttechie.github.io/hugo-personal-blog/post/</link>
     <description>Recent content in Posts on John Smith Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2017, blogname.com; all rights reserved.</copyright>
-    <lastBuildDate>Wed, 11 Oct 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 19 Sep 2017 16:56:18 +0500</lastBuildDate>
     
-	<atom:link href="/hugo-personal-blog/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://smarttechie.github.io/hugo-personal-blog/post/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>First Markdown file in R Markdown</title>
-      <link>/hugo-personal-blog/post/first-markdown-file-in-r-markdown/</link>
-      <pubDate>Wed, 11 Oct 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/hugo-personal-blog/post/first-markdown-file-in-r-markdown/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>Collaborative Plotting With R</title>
-      <link>/hugo-personal-blog/post/collaborative-plotting-with-r/</link>
+      <link>https://smarttechie.github.io/hugo-personal-blog/post/collaborative-plotting-with-r/</link>
       <pubDate>Tue, 19 Sep 2017 16:56:18 +0500</pubDate>
       
-      <guid>/hugo-personal-blog/post/collaborative-plotting-with-r/</guid>
+      <guid>https://smarttechie.github.io/hugo-personal-blog/post/collaborative-plotting-with-r/</guid>
       <description>The Plotly R graphing library allows you to create and share interactive, publication-quality plots in your browser. Plotly is also built for working together, and makes it easy to post graphs and data publicly with a URL or privately to collaborators.
 In this post, we will demo Plotly, make three graphs, and explain sharing. As we are quite new and still in our beta, your help, feedback, and suggestions go a long way and are appreciated.</description>
     </item>
     
     <item>
       <title>Data Science Strategy for Water Utilities</title>
-      <link>/hugo-personal-blog/post/data-science-strategy-for-water-utilities/</link>
+      <link>https://smarttechie.github.io/hugo-personal-blog/post/data-science-strategy-for-water-utilities/</link>
       <pubDate>Mon, 18 Sep 2017 18:11:55 +0500</pubDate>
       
-      <guid>/hugo-personal-blog/post/data-science-strategy-for-water-utilities/</guid>
+      <guid>https://smarttechie.github.io/hugo-personal-blog/post/data-science-strategy-for-water-utilities/</guid>
       <description>The Data Science Venn Diagram (Conway, 2010).   In my job as manager data science for a medium-sized water utility in Australia, I have developed a strategy to increased the amount of value we extract from data.
 Many businesses that seek the promised benefits of Big Data don&amp;rsquo;t achieve those because they don&amp;rsquo;t start with the basics.
 The most important data science strategy advice is to spend a lot of time getting to know and to improve data quality.</description>
