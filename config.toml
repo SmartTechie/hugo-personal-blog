@@ -22,7 +22,7 @@ GoogleAnalytics = "UA-XXXXX-Y"
 [params]
 	copyright_years = "2017"
 	css_file = "/css/nixon.css"
-	domain_name = "Hugo Personal Blog with R Blogdown"
+	domain_name = "smarttechie.github.io/hugo-personal-blog"
 	personal_site = "https://smarttechie.github.io/hugo-personal-blog/"
 
 	[params.author]
