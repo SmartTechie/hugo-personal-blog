@@ -22,8 +22,8 @@ GoogleAnalytics = "UA-XXXXX-Y"
 [params]
 	copyright_years = "2017"
 	css_file = "/css/nixon.css"
-	domain_name = "blogname.com"
-	personal_site = "http://blogname.com/"
+	domain_name = "Hugo Personal Blog with R Blogdown"
+	personal_site = "https://smarttechie.github.io/hugo-personal-blog/"
 
 	[params.author]
 		name = "John Smith"
