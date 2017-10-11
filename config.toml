@@ -1,4 +1,4 @@
-baseurl = "http://blogname.com/"
+baseurl = "https://smarttechie.github.io/hugo-personal-blog/"
 theme = "nixon"
 title = "John Smith Blog"
 languageCode = "en-us"
