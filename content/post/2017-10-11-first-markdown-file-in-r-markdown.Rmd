@@ -1,0 +1,197 @@
+---
+title: First Markdown file in R Markdown
+author: Shammas
+date: '2017-10-11'
+slug: first-markdown-file-in-r-markdown
+categories:
+  - R Markdown
+tags:
+  - R
+  - R Markdown
+draft: yes
+---
+
+
+```{r setup, include=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
+rm(list=ls())
+
+proc.basic <- function(df) {
+  df$Payment.Record.Date..UTC. <- as.character(df$Payment.Record.Date..UTC.)
+  df$User.Recruitment.Date..UTC. <- as.character(df$User.Recruitment.Date..UTC.)
+  col.drop<-c("User.First.Name", "User.Last.Name", "State", "PostalCode", "Region", 
+              "Gender", "Race", "IsLatino", "Education", "Income", "Job.Function",
+              "Job.Title", "Employment.Status", "User.Double.Opted.In",
+              "User.Completed.Profile", "User.Age",  "City", "Postal.Code", "Is.Latino.",
+              "User.Income")  
+  df<-df[,-which(names(df) %in% col.drop)]
+  df$Incentive<-as.numeric(df$Incentive)
+  return(df)
+}
+
+proc.dt <- function(df) {
+  #df<-esd
+  urd<-ymd_hms(df$User.Recruitment.Date..UTC.)
+  df$urd.year<-year(urd)
+  df$urd.month<-month(urd)
+  df$urd.week<-week(urd)
+  df$urd.wday<-wday(urd)
+  df$urd.days.ref<-round(interval(ymd("20000101"),urd) / ddays(1))
+  prd<-ymd_hms(df$Payment.Record.Date..UTC.)
+  df$prd.year<-year(prd)
+  df$prd.month<-month(prd)
+  df$prd.week<-week(prd)
+  df$prd.wday<-wday(prd)
+  df$prd.days.ref<-round(interval(ymd("20000101"),prd) / ddays(1))
+  df$prd.since.urd <- df$prd.days.ref - df$urd.days.ref
+  df$prd.week.ref<-floor(df$prd.days.ref)
+  return(df)
+}
+
+
+step1 <- function() {
+  library (lubridate)
+  library(dplyr)
+  library(knitr)
+  #setwd("/Users/arman/gd/r-projects/igain")
+  setwd("/Users/shammas/Downloads")
+  #esd<-read.csv("EarningStation_Data_Sample.csv")
+  esd<-read.csv("EarningStation_Data_Sample_20170920.csv", check.names = TRUE)
+  esd<-proc.basic(esd)
+  esd<-proc.dt(esd)
+  return(esd)
+}
+
+step2 <- function(esd) {
+  
+  # let's drop records where User.Recruitment.Date..UTC. > Payment.Record.Date..UTC.
+  bad.rows.urd.prd.issue <- which(esd$User.Recruitment.Date..UTC. > esd$Payment.Record.Date..UTC.)
+  esd <- esd[-bad.rows.urd.prd.issue,]
+  return(esd)
+}
+
+# 3. For each User ID: (Sum of all Transaction Profit)
+#   - User Recruitment Cost = Total Revenue Generated for User ID
+
+# 4. Normalize Total Revenue Generated for User ID by Numbers of Days Active 
+#   (Oldest Date Stamp - Newest Data Stamp) for three new variables: (1) Tenure, 
+#   (2) Average Profit per Weeks Engaged, (3) Total Profit over Term of Engagement
+
+add.cohort <- function(esd) {
+  start.date <- min(esd$urd.days.ref)
+  esd$wcohort <- floor((esd$urd.days.ref-start.date) / 4)
+  return(esd)
+}
+
+mk.wesd <- function(esd) { 
+  esd %>% group_by(User.Id, prd.week.ref) %>% 
+    summarise(wrev=sum(Revenue..USD.), wincen=sum(Incentive..USD.), 
+              wprd.since.urd=floor((max(prd.since.urd)/4)),
+              wact=n()) -> wesd
+  return(wesd)
+}
+
+main <- function() {
+  setwd("/Users/shammas/Downloads")
+  esd <- step1()
+  esd <- step2(esd)
+  esd <- add.cohort(esd)
+  
+  
+  # 1 Calculate a new variable [Transaction Profit]
+  #   Transaction Profit = Revenue - Incentive
+  
+  esd$profit <- esd$Revenue..USD. - esd$Incentive..USD.
+  
+  # 2. Calculate a new variable [Sum of Transaction Profits for User ID]
+  #    Sum of Transaction Revenue for each User ID [SQL: Group By]
+  
+  
+  esd %>%
+    group_by(User.Id) %>% 
+    summarize(tprofit=sum(profit), tincentive=sum(Incentive..USD.)) -> tprofit.by.user
+  
+  esd %>%
+    group_by(User.Id) %>% 
+    summarize(rcost=max(User.Recruitment.Cost..USD.)) -> rcost.by.user
+  
+  esd %>%
+    group_by(User.Id) %>% 
+    summarize(n=n()) -> ntran.by.user
+  
+  inner_join(tprofit.by.user,rcost.by.user) -> user.tproft.rcost
+  
+  inner_join(user.tproft.rcost,ntran.by.user) -> user.tproft.rcost.n
+  
+  # 3. For each User ID: 
+  #    (Sum of all Transaction Profit) - User Recruitment Cost = Total Revenue 
+  #    Generated for User ID
+  
+  user.tproft.rcost.n$trev <- user.tproft.rcost.n$tprofit - user.tproft.rcost.n$rcost
+  
+  # 4. Normalize Total Revenue Generated for User ID by Numbers of Days 
+  #    Active (Oldest Date Stamp - Newest Data Stamp) for three new variables: 
+  #    (1) Tenure, (2) Average Profit per Weeks Engaged, (3) Total Profit 
+  #    over Term of Engagement
+  
+  esd %>%
+    group_by(User.Id) %>%
+    summarise(start.day=min(prd.days.ref),
+              last.day=max(prd.days.ref),
+              num.tran=n(),
+              tenure=last.day-start.day+1) -> user.tenures
+  
+  inner_join(user.tproft.rcost.n,user.tenures) -> user.tproft.rcost.n.tenures
+  
+  user.tproft.rcost.n.tenures[,-which(names(user.tproft.rcost.n.tenures) 
+                                      %in% c("start.day", "last.day"))] -> user.tproft.rcost.n.tenures
+  
+  # 5. Group findings by Recruitment Source ID and output Step 4 across 
+  #    all groups and for each group
+  
+  
+  esd %>% 
+    group_by(User.Id,Recruitment.Source.Id) %>% 
+    select(User.Id,Recruitment.Source.Id) %>% 
+    distinct -> users.by.Recruitment.Source.Id
+  
+  inner_join(user.tproft.rcost.n.tenures,users.by.Recruitment.Source.Id) -> user.tproft.rcost.n.tenures.rsource
+  
+  user.tproft.rcost.n.tenures.rsource %>% 
+    group_by(Recruitment.Source.Id) %>%
+    summarize(t.s.profit=sum(tprofit),
+              t.s.incentive=sum(tincentive),
+              t.s.rcost=sum(rcost),
+              t.s.tran=sum(num.tran)) -> sum.by.source
+  
+  sum.by.source$Recruitment.Source.Id.spl <- 1:nrow(sum.by.source)
+  
+  user.tproft.rcost.n.tenures.rsource %>% 
+    group_by(Recruitment.Source.Id) %>% 
+    distinct(User.Id) %>% 
+    summarize(n.userids=n()) -> source.n.userids
+  
+  inner_join(sum.by.source, source.n.userids) -> sum.by.source
+  
+  # 6. Visualize, distinguishing Recruitment Source ID by color, with X-axis 
+  #    Total Revenue Generated and Y-axis as Length of Tenure
+  
+  # 7.If possible, let's put this into something like MarketCaliper so we can 
+  #   also filter and segregate by demographics (e.g., College Educated who live 
+  #   in these Eastern States) 
+  
+  saveRDS(sum.by.source,"sum.by.source")
+  
+}
+main()
+setwd("/Users/shammas/Downloads")
+sum.by.source <- readRDS("sum.by.source")
+
+```
+
+```{r, echo=FALSE, warning=FALSE}
+par(mfrow=c(2,2))
+plot(sum.by.source$Recruitment.Source.Id.spl, sum.by.source$t.s.profit, main="profit/source",xlab="",ylab="")
+plot(sum.by.source$Recruitment.Source.Id.spl, sum.by.source$t.s.incentive, main="incentive/source",xlab="",ylab="")
+plot(sum.by.source$Recruitment.Source.Id.spl, sum.by.source$t.s.rcost, main="recruitement/source",xlab="",ylab="")
+plot(sum.by.source$Recruitment.Source.Id.spl, sum.by.source$t.s.tran, main="transactions/source",xlab="",ylab="")
+```

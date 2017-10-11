@@ -4,6 +4,7 @@ title = "John Smith Blog"
 languageCode = "en-us"
 copyright = "Copyright (c) 2017, blogname.com; all rights reserved."
 MetaDataFormat = "yaml"
+publishdir = "docs"
 
 # used by Hugo shortcodes
 GoogleAnalytics = "UA-XXXXX-Y"
